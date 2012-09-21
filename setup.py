@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-longform',
-    version='0.1.0',
+    version='0.1.1',
     description='A Django application for longform blogging.',
     author='Martey Dodoo',
     author_email='django-longform@marteydodoo.com',
