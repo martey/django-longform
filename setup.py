@@ -12,6 +12,7 @@ setup(
     version='0.1.0',
     description='A Django application for longform blogging.',
     author='Martey Dodoo',
+    author_email='django-longform@marteydodoo.com'
     url='http://github.com/martey/django-longform',
     license='MIT',
     py_modules=[
