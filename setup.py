@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 from distutils.core import setup
-import os
-
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
 setup(
@@ -18,6 +13,6 @@ setup(
     py_modules=[
         'longform',
     ],
-    long_description=read("README.rst"),
+    long_description=open('README').read(),
     classifiers=[],
 )
