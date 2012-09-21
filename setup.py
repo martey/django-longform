@@ -10,9 +10,6 @@ setup(
     author_email='django-longform@marteydodoo.com',
     url='https://github.com/martey/django-longform',
     license='MIT',
-    py_modules=[
-        'longform',
-    ],
     long_description=open('README').read(),
     classifiers=[],
     install_requires=[
