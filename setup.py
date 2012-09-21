@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from distutils.core import setup
+from setuptools import setup
 
 
 setup(
@@ -15,4 +15,10 @@ setup(
     ],
     long_description=open('README').read(),
     classifiers=[],
+    install_requires=[
+        'django',
+        'django-markdown',
+        'django-taggit',
+        'markdown',
+    ],
 )
