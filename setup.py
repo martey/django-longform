@@ -11,7 +11,7 @@ setup(
     url='https://github.com/martey/django-longform',
     license='MIT',
     packages=['longform'],
-    long_description=open('README').read(),
+    long_description=open('README.rst').read(),
     classifiers=[],
     install_requires=[
         'django',
