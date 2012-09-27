@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-longform',
-    version='0.1.2',
+    version='0.1.3',
     description='A Django application for longform blogging.',
     author='Martey Dodoo',
     author_email='django-longform@marteydodoo.com',
