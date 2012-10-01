@@ -74,7 +74,7 @@ class Article(models.Model):
                 "slug": self.slug,
             })
         else:
-            return ("longform-article-preview", (), {"id": self.id})
+            return ("longform-article-preview", (), {"pk": self.id})
 
     def is_published(self):
         """Returns True is article is publicly available."""
