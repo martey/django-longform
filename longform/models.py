@@ -64,7 +64,7 @@ class Article(models.Model):
     @models.permalink
     def get_absolute_url(self):
         if self.is_published():
-            # Convert to local server time. See 
+            # Convert to local server time. See
             # <http://ur1.ca/9z40w> and <http://ur1.ca/9z40r>
             local_date_published = timezone.localtime(self.date_published)
             return ("longform-article-detail", (), {
