@@ -14,7 +14,7 @@ def _get_all_years():
     """
     articles = Article.objects.published.order_by("-date_published")
     return range(articles[0].date_published.year,
-                 articles[len(articles)-1].date_published.year-1, -1)
+                 articles[len(articles) - 1].date_published.year - 1, -1)
 
 
 class ArticleArchiveIndexView(ArchiveIndexView):
