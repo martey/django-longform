@@ -1,6 +1,8 @@
 from django.views.generic import (ArchiveIndexView, DateDetailView, DetailView,
                                   YearArchiveView)
+from django.views.generic.list import ListView
 from longform.models import Article
+from taggit.models import Tag
 
 
 def _get_all_years():
@@ -14,7 +16,7 @@ def _get_all_years():
     """
     articles = Article.objects.published.order_by("-date_published")
     return range(articles[0].date_published.year,
-                 articles[len(articles)-1].date_published.year-1, -1)
+                 articles[len(articles) - 1].date_published.year - 1, -1)
 
 
 class ArticleArchiveIndexView(ArchiveIndexView):
@@ -36,6 +38,18 @@ class ArticleDateDetailView(DateDetailView):
     date_field = "date_published"
     model = Article
     month_format = "%m"
+
+
+class ArticleTagView(ListView):
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleTagView, self).get_context_data(**kwargs)
+
+        context["tag"] = Tag.objects.get(slug=self.kwargs["slug"])
+        return context
+
+    def get_queryset(self):
+        return Article.objects.published.filter(tags__slug=self.kwargs["slug"])
 
 
 class ArticlePreviewView(DetailView):
