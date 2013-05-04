@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url, include
 from longform.views import (ArticleArchiveIndexView, ArticleDateDetailView,
-                            ArticlePreviewView, ArticleYearArchiveView)
+                            ArticlePreviewView, ArticleTagView,
+                            ArticleYearArchiveView)
 
 urlpatterns = patterns(
     "longform.views",
@@ -13,6 +14,9 @@ urlpatterns = patterns(
     url(r"^preview/(?P<pk>\d+)/$",
         ArticlePreviewView.as_view(),
         name="longform-article-preview"),
+    url(r"^tagged/(?P<slug>[-\w]+)/$",
+        ArticleTagView.as_view(),
+        name="longform-tag"),
     url(r"^$",
         ArticleArchiveIndexView.as_view(),
         name="longform-index"),
