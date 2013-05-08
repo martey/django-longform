@@ -70,8 +70,3 @@ class ArticleYearArchiveView(YearArchiveView):
 
     def get_queryset(self, **kwargs):
         return Article.objects.pub_by_year(self.get_year())
-
-    def get_year(self, **kwargs):
-        """Coerce year into integer for comparison purposes."""
-        year = super(ArticleYearArchiveView, self).get_year(**kwargs)
-        return int(year)
