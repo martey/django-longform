@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 from markdown import markdown
@@ -61,20 +62,19 @@ class Article(models.Model):
     def __unicode__(self):
         return u"%s" % self.title
 
-    @models.permalink
     def get_absolute_url(self):
         if self.is_published():
             # Convert to local server time. See
             # <http://ur1.ca/9z40w> and <http://ur1.ca/9z40r>
             local_date_published = timezone.localtime(self.date_published)
-            return ("longform-article-detail", (), {
+            return reverse("longform-article-detail", kwargs={
                 "year": local_date_published.strftime("%Y"),
                 "month": local_date_published.strftime("%m"),
                 "day": local_date_published.strftime("%d"),
-                "slug": self.slug,
+                "slug": self.slug
             })
         else:
-            return ("longform-article-preview", (), {"pk": self.id})
+            return reverse("longform-article-preview", kwargs={"pk": self.pk})
 
     def is_published(self):
         """Returns True is article is publicly available."""
