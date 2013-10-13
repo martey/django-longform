@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -41,7 +41,7 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     title = models.CharField(max_length=250)
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
     excerpt = models.TextField(blank=True, null=True,
                                help_text="Optional excerpt.")
     excerpt_html = models.TextField(blank=True, editable=False)
