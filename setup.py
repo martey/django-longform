@@ -15,7 +15,6 @@ setup(
     classifiers=[],
     install_requires=[
         'django',
-        'django-markdown',
         'django-taggit',
         'markdown',
     ],
