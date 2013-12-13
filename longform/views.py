@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import (ArchiveIndexView, DateDetailView, DetailView,
                                   YearArchiveView)
 from django.views.generic.list import ListView
@@ -45,7 +46,7 @@ class ArticleTagView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleTagView, self).get_context_data(**kwargs)
 
-        context["tag"] = Tag.objects.get(slug=self.kwargs["slug"])
+        context["tag"] = get_object_or_404(Tag, slug=self.kwargs["slug"])
         return context
 
     def get_queryset(self):
